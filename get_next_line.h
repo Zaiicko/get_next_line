@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:14 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/05/22 18:31:48 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/05/22 21:44:03 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # endif
 
 #include "stdlib.h"
+#include "fcntl.h"
 
 #endif
