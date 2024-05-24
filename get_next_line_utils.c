@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:10 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/05/24 18:43:16 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/05/24 18:49:31 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dest || !src)
+		return ;
 	i = 0;
 	if (dest == src)
 		return (dest);
@@ -67,6 +69,8 @@ char	*ft_strdup(const char *s1)
 {
 	char	*dest;
 
+	if (!s1)
+		return (NULL);
 	dest = (char *)ft_calloc(ft_strlen(s1) + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
