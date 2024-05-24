@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:10 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/05/24 00:32:28 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/05/24 17:52:25 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,41 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t i;
+
+	i = 0;
+	if (dest == src)
+		return (dest);
+	while (i < n)
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dest);
+}
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*dest;
+	size_t	len;
+	size_t	i;
+
+	len = count * size;
+	if (count != 0 && size != 0)
+	{
+		if ((len / count) != size)
+			return (NULL);
+	}
+	i = 0;
+	dest = (void *)malloc(count * size);
+	if (!dest)
+		return (NULL);
+	while (i < len )
+	{
+		((unsigned char *)dest)[i] = 0;
+		i++;
+	}
+	return (dest);
 }
