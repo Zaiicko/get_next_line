@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:14 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/02 16:37:31 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/02 19:35:39 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_free_null(char *str);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif
