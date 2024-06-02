@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:10 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/05/26 04:29:01 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/02 16:41:08 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,11 @@ char	*ft_strdup(const char *s1)
 	if (!dest)
 		return (NULL);
 	return (ft_memcpy(dest, s1, ft_strlen(s1) + 1));
+}
+
+char	*ft_free_null(char *str)
+{
+	free(str);
+	str = NULL;
+	return (str);
 }
