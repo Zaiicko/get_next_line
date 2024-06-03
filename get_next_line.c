@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/02 19:35:53 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/03 16:51:56 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	ft_memcpy(str, s + start, len);
 	return (str);
 }
+
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
@@ -40,6 +41,22 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ft_memcpy(str, s1, ft_strlen(s1));
 	ft_memcpy(str + ft_strlen(s1), s2, ft_strlen(s2));
 	return (str);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = ft_strlen(s);
+	if (c == '\0')
+		return ((char *)(s + i));
+	while (i >= 0)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }
 
 char	*get_next_line(int fd)
