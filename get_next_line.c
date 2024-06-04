@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/03 16:51:56 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/04 20:29:05 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,32 @@ char	*ft_strrchr(const char *s, int c)
 	return (NULL);
 }
 
+char	*ft_read(int fd, char *stash)
+{
+	char	*buffer;
+	ssize_t	read_bytes;
+
+	if (fd < 0 || BUFFER_SIZE < 0)
+		return (NULL);
+	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	while (!(ft_strrchr(stash, '\n')))
+	{
+		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (read_bytes < 0)
+		{
+			free(buffer);
+			return (NULL);
+		}
+		ft_strjoin(stash, buffer);
+	}
+	free(buffer);
+	return (stash);
+}
+
 char	*get_next_line(int fd)
 {
+	static char	*stash;
+
+	if (fd < 0)
+		return (NULL);
 }
