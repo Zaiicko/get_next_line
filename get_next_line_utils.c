@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:10 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/02 16:41:08 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/05 02:16:39 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,18 @@ char	*ft_strdup(const char *s1)
 	return (ft_memcpy(dest, s1, ft_strlen(s1) + 1));
 }
 
-char	*ft_free_null(char *str)
+char	*ft_strrchr(const char *s, int c)
 {
-	free(str);
-	str = NULL;
-	return (str);
+	size_t	i;
+
+	i = ft_strlen(s);
+	if (c == '\0')
+		return ((char *)(s + i));
+	while (i >= 0)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }

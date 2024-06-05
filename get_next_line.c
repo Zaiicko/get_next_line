@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/05 01:39:43 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/05 03:12:11 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ft_memcpy(str, s1, ft_strlen(s1));
 	ft_memcpy(str + ft_strlen(s1), s2, ft_strlen(s2));
 	return (str);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	size_t	i;
-
-	i = ft_strlen(s);
-	if (c == '\0')
-		return ((char *)(s + i));
-	while (i >= 0)
-	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return ((char *)(s + i));
-		i--;
-	}
-	return (NULL);
 }
 
 char	*ft_read(int fd, char *stash)
