@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/05 03:31:37 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/06 02:44:50 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (str);
 }
 
-char	*ft_read(int fd, char *stash)
+char	*ft_read_and_stack(int fd, char *stash)
 {
 	char	*buffer;
 	ssize_t	read_bytes;
@@ -53,7 +53,8 @@ char	*ft_read(int fd, char *stash)
 	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
-	while (!(ft_strrchr(stash, '\n')))
+	read_bytes = 1;
+	while (read_bytes > 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes < 0)
@@ -62,6 +63,8 @@ char	*ft_read(int fd, char *stash)
 			return (NULL);
 		}
 		ft_strjoin(stash, buffer);
+		if (ft_strrchr(buffer, '\n'))
+			break;
 	}
 	free(buffer);
 	return (stash);
