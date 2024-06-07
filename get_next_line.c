@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/06 16:56:10 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/07 03:07:55 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,14 @@ char    *ft_next_line(char *buffer)
 	i = 0;
     while (buffer[i] && buffer[i] != '\n')
         i++;
-    if (!buffer[i])
-    {
-        free(buffer);
-        return (NULL);
-    }
+	if (buffer[i] == '\n')
+        i++;
+	else if (!buffer[i])
+		i++;
     line = ft_substr(buffer, 0, i);
 	if (!line)
 		return (NULL);
-    ft_memcpy(buffer, buffer + i + 1, ft_strlen(buffer + i + 1) + 1);
+    ft_memcpy(buffer, buffer + i, ft_strlen(buffer + i) + 1);
     return (line);
 }
 
