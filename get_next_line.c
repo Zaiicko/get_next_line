@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/07 03:07:55 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/07 03:32:05 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,30 +64,31 @@ char	*ft_read_and_stack(int fd, char *stash)
 		}
 		ft_strjoin(stash, buffer);
 		if (ft_strrchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	free(buffer);
 	return (stash);
 }
-char    *ft_next_line(char *buffer)
+
+char	*ft_next_line(char *buffer)
 {
-    size_t	i;
-    char	*line;
+	size_t	i;
+	char	*line;
 
 	if (!buffer)
 		return (NULL);
 	i = 0;
-    while (buffer[i] && buffer[i] != '\n')
-        i++;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
 	if (buffer[i] == '\n')
-        i++;
+		i++;
 	else if (!buffer[i])
 		i++;
-    line = ft_substr(buffer, 0, i);
+	line = ft_substr(buffer, 0, i);
 	if (!line)
 		return (NULL);
-    ft_memcpy(buffer, buffer + i, ft_strlen(buffer + i) + 1);
-    return (line);
+	ft_memcpy(buffer, buffer + i, ft_strlen(buffer + i) + 1);
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -106,5 +107,5 @@ char	*get_next_line(int fd)
 		free(line);
 		return (NULL);
 	}
-	return(line);	
+	return (line);
 }
