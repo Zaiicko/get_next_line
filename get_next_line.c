@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/12 16:39:45 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/12 19:43:53 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	stash = ft_read_and_stack(fd, stash);
-	if (!stash)
-		return (NULL);
+	if (!stash || *stash == '\0')
+		return (free(stash), stash = NULL, NULL);
 	line = ft_next_line(stash);
 	if (!line)
 		return (free(line), NULL);
