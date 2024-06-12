@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:14 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/07 03:29:40 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/12 15:43:57 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*ft_free_null(char *str);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_read_and_stack(int fd, char *stash);
