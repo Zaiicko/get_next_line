@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/13 03:15:27 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/14 18:14:34 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ char	*ft_read_and_stack(int fd, char *stash)
 		stash = (char *)ft_calloc(1, 1);
 	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
-		return (NULL);
+		return (free(stash), NULL);
 	read_bytes = 1;
 	while (read_bytes > 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes < 0)
-			return (free(buffer), NULL);
+			return (free(buffer), free(stash), NULL);
 		temp = ft_strjoin(stash, buffer);
 		free(stash);
 		stash = temp;
@@ -108,6 +108,8 @@ char	*get_next_line(int fd)
 		return (free(stash), stash = NULL, NULL);
 	line = ft_next_line(stash);
 	if (!line)
-		return (free(line), NULL);
+		return (free(stash), stash = NULL, NULL);
+	if (*stash == '\0')
+		return (free(stash), stash = NULL, line);
 	return (line);
 }
