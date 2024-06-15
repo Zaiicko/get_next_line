@@ -6,7 +6,7 @@
 /*   By: zaiicko <meskrabe@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:33:12 by zaiicko           #+#    #+#             */
-/*   Updated: 2024/06/14 20:46:29 by zaiicko          ###   ########.fr       */
+/*   Updated: 2024/06/15 01:58:40 by zaiicko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_read_and_stack(int fd, char *stash)
 
 	if (!stash)
 		stash = (char *)ft_calloc(1, 1);
-	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	buffer = (char *)malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (!buffer)
 		return (free(stash), NULL);
 	read_bytes = 1;
